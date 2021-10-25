@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-use Illuminate\Support\Facades\File;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,8 +22,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/posts/{post}', function ($slug) {
+Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', [
-        'post' => Post::findOrFail($slug)
+        'post' => $post
     ]);
 });
