@@ -3,6 +3,7 @@
        <h1>{{ $post->title; }}</h1>
 
        <p>
+           Written by <a href="#">{{ $post->user->name }}</a> in
            <a href="/cagegories/{{$post->category->slug}}">
             {{ $post->category->name }}
            </a>
