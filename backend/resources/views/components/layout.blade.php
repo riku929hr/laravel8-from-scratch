@@ -56,4 +56,9 @@
             </div>
         </footer>
     </section>
+    @if (session()->has('success'))
+    <div class="bg-blue-500 bottom-3 fixed px-4 py-2 right-3 rounded-xl text-sm text-white">
+        <p>{{ session('success') }}</p>
+    </div>
+    @endif
 </body>
