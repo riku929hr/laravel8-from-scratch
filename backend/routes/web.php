@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
@@ -22,5 +23,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
+
+Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
 Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
 Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');
