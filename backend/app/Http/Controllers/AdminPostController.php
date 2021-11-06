@@ -21,7 +21,7 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        Post::create(array_merge($this->validatePost(), [
+        Post::create(array_merge($this->validatePost(null), [
             'user_id' => auth()->id(),
             'thumbnail' => request()->file('thumbnail')->store('thumbnail')
         ]));
@@ -68,7 +68,7 @@ class AdminPostController extends Controller
             'excerpt' => 'required',
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')],
-            'published_at' => 'required'
+            // 'published_at' => 'required'
         ]);
     }
 }
